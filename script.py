@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import argparse
 import ST7735
 import time
 import ssl
@@ -105,8 +104,6 @@ def main():
         pms5003 = PMS5003()
         _ = pms5003.read()
         HAS_PMS = True
-        msg = { "info": "PMS sensor is connected" }
-        print(json.dumps(msg))
     except SerialTimeoutError:
         msg = { "info": "no PMS sensor connected" }
         print(json.dumps(msg))
