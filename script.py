@@ -105,9 +105,11 @@ def main():
         pms5003 = PMS5003()
         _ = pms5003.read()
         HAS_PMS = True
-        print("PMS5003 sensor is connected")
+        msg = { "info": "PMS sensor is connected" }
+        print(json.dumps(msg))
     except SerialTimeoutError:
-        print("No PMS5003 sensor connected")
+        msg = { "info": "no PMS sensor connected" }
+        print(json.dumps(msg))
 
     # Main loop to read data, display, and send over mqtt
     while True:
